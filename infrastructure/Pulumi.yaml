@@ -1,0 +1,7 @@
+name: lemonaid
+runtime: nodejs
+description: community mutual lemonaid
+config:
+    pulumi:tags:
+        value:
+            pulumi:template: typescript

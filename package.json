@@ -1,0 +1,39 @@
+{
+    "name": "@the-rainbow-bridge/lemonaid",
+    "version": "0.1.0",
+    "description": "infrastructure and api/server layer for lemonaid app",
+    "author": "The Rainbow Bridge",
+    "contributors": [
+        "@e-papanicolas"
+    ],
+    "license": "GPL-3.0-only",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/the-rainbow-bridge/lemonaid"
+    },
+    "scripts": {
+        "dev": "bun run --hot src/index.ts",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@ediri/vultr": "^2.19.0",
+        "@supabase/supabase-js": "^2.39.8",
+        "hono": "^4.1.0",
+        "winston": "^3.12.0"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "drizzle-orm": "^0.30.2",
+        "prettier": "3.2.5",
+        "zod": "^3.22.4"
+    },
+    "prettier": {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "printWidth": 120,
+        "arrowParens": "always",
+        "bracketSpacing": true
+    }
+}
