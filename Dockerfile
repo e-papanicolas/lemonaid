@@ -2,7 +2,7 @@
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM oven/bun:1 as base
 
-# development
+FROM base as dev
 COPY package.json bun.lockb ./
 RUN bun install
 COPY . .
