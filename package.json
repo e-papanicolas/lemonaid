@@ -12,8 +12,11 @@
         "url": "https://github.com/the-rainbow-bridge/lemonaid"
     },
     "scripts": {
-        "dev": "bun run --hot src/index.ts",
-        "format": "prettier --write ."
+        "dev": "bun run --hot app/index.ts",
+        "format": "prettier --write .",
+        "start": "bun run app/index.ts",
+        "docker:build": "docker build -t lemonaid .",
+        "docker:dev": "docker compose watch"
     },
     "dependencies": {
         "@ediri/vultr": "^2.19.0",
