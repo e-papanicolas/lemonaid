@@ -1,6 +1,7 @@
 {
     "name": "@the-rainbow-bridge/lemonaid",
     "version": "0.1.0",
+    "type": "module",
     "description": "infrastructure and api/server layer for lemonaid app",
     "author": "The Rainbow Bridge",
     "contributors": [
@@ -12,11 +13,15 @@
         "url": "https://github.com/the-rainbow-bridge/lemonaid"
     },
     "scripts": {
+        "prepare": "husky",
         "dev": "bun run --hot app/index.ts",
         "format": "prettier --write .",
+        "lint": "oxlint",
+        "build": "bun build ./app/index.ts --outdir=out",
+        "build:watch": "bun build ./app/index.ts --outdir=out --watch",
         "start": "bun run app/index.ts",
-        "docker:build": "docker build -t lemonaid .",
-        "docker:dev": "docker compose watch"
+        "docker:dev": "docker compose watch",
+        "docker:build": "docker build -t lemonaid ."
     },
     "dependencies": {
         "@ediri/vultr": "^2.19.0",
@@ -27,6 +32,9 @@
     "devDependencies": {
         "@types/bun": "latest",
         "drizzle-orm": "^0.30.2",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "oxlint": "^0.2.14",
         "prettier": "3.2.5",
         "zod": "^3.22.4"
     },
@@ -38,5 +46,11 @@
         "printWidth": 120,
         "arrowParens": "always",
         "bracketSpacing": true
+    },
+    "lint-staged": {
+        "*": [
+            "bun run lint",
+            "bun run format"
+        ]
     }
 }

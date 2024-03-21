@@ -11,24 +11,23 @@
 name: lemonaid
 
 services:
-  app:
-    build:
-      context: .
-    ports:
-      - 3000:3000
-    volumes:
-      - app:/data/app
-    develop:
-      watch:
-        - path: ./app
-          action: rebuild
-          target: /var/www
-        - path: ./infrastructure
-          action: rebuild
+    app:
+        build:
+            context: .
+        ports:
+            - 3000:3000
+        volumes:
+            - app:/data/app
+        develop:
+            watch:
+                - path: ./app
+                  action: rebuild
+                  target: /var/www
+                - path: ./infrastructure
+                  action: rebuild
 
 volumes:
-  app:
-
+    app:
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
