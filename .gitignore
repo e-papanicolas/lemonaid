@@ -3,3 +3,7 @@ bin
 .env
 /out
 /logs
+
+# Supabase
+.branches
+.temp
