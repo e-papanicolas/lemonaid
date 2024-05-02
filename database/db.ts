@@ -1,8 +1,9 @@
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
-import * as schema from './schema'
+import validateEnvVar from '../app/utils/validateEnvVar'
 import { connectionStringFromEnv as connectionString } from '../drizzle.config'
+import * as schema from './schema'
 
-// Disable prefetch as it is not supported for "Transaction" pool mode
-export const client = postgres(connectionString || '', { prepare: false })
+const verifiedConnectionString = validateEnvVar(connectionString, 'connection string')
+export const client = postgres(verifiedConnectionString, { prepare: false })
 export const db = drizzle(client, { schema })
