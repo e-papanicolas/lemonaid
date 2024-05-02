@@ -4,9 +4,7 @@
     "type": "module",
     "description": "infrastructure and api/server layer for lemonaid app",
     "author": "The Rainbow Bridge",
-    "contributors": [
-        "@e-papanicolas"
-    ],
+    "contributors": ["@e-papanicolas"],
     "license": "GPL-3.0-only",
     "repository": {
         "type": "git",
@@ -15,8 +13,7 @@
     "scripts": {
         "prepare": "husky",
         "dev": "bun run --hot app/index.ts --env-file .env",
-        "format": "prettier --write .",
-        "lint": "oxlint",
+        "lint-format": "bunx @biomejs/biome format --write .",
         "build": "bun build ./app/index.ts --outdir=out",
         "build:watch": "bun build ./app/index.ts --outdir=out --watch",
         "start": "bun run app/index.ts --env-file .env",
@@ -35,28 +32,15 @@
         "winston": "^3.12.0"
     },
     "devDependencies": {
+        "@biomejs/biome": "1.7.2",
         "@types/bun": "latest",
         "drizzle-kit": "^0.20.14",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
-        "oxlint": "^0.2.14",
-        "prettier": "3.2.5",
         "tsx": "^4.7.1",
         "zod": "^3.22.4"
     },
-    "prettier": {
-        "singleQuote": true,
-        "trailingComma": "es5",
-        "tabWidth": 4,
-        "semi": false,
-        "printWidth": 120,
-        "arrowParens": "always",
-        "bracketSpacing": true
-    },
     "lint-staged": {
-        "*": [
-            "bun run lint",
-            "bun run format"
-        ]
+        "*": ["bun run lint-format"]
     }
 }
