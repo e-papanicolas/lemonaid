@@ -32,9 +32,9 @@
         "winston": "^3.12.0"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.7.3",
+        "@biomejs/biome": "1.8.3",
         "@types/bun": "latest",
-        "drizzle-kit": "^0.21.3",
+        "drizzle-kit": "^0.22.8",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
         "tsx": "^4.7.1",
